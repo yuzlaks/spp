@@ -14,7 +14,7 @@
     <title>Document</title>
 </head>
 <body>
-    hai <a href="auth/logout.php?logout">Logout</a>
+    woi <a href="auth/logout.php?logout">Logout</a>
 </body>
 </html>
 <?php

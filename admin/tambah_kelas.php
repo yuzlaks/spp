@@ -8,7 +8,7 @@
 </head>
 <body>
     
-    <form action="" method="post">
+    <form action="" method="POST">
         <label>Kelas</label>
         <input type="text" name="kelas">
         <input type="submit" value="simpan" name="simpan">
@@ -21,7 +21,7 @@
     include '../koneksi/koneksi.php';
     if (isset($_POST['simpan'])) {
         $kelas = $_POST['kelas'];
-        $query = mysqli_query($host,"INSERT INTO kelas(kelas) VALUES ('$kelas')");
+        $query = mysqli_query($host,"INSERT INTO kelas(kelas) VALUES('$kelas')");
         if ($query){
             header('location:lihat_kelas.php');
         }

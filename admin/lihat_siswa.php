@@ -23,7 +23,7 @@
         <tbody>
     <?php
         include '../koneksi/koneksi.php';
-        $query = mysqli_query($host,"SELECT * FROM siswa");
+        $query = mysqli_query($host,"SELECT * FROM siswa INNER JOIN kelas ON siswa.id_kelas = kelas.id_kelas");
         $no = 1;
         while ($tampil = mysqli_fetch_assoc($query)) {
     ?>

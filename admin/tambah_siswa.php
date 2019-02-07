@@ -13,7 +13,13 @@
         <input type="text" name="nama_siswa"><br>
         <label>Kelas</label>
         <select name="kelas">
-            <option value="X">X</option>
+            <?php
+                include '../koneksi/koneksi.php';
+
+                $query = mysqli_query($host,"SELECT * FROM kelas");
+                while ($kelas = mysqli_fetch_assoc($query)) { ?>
+                <option value="<?= $kelas['id_kelas'] ?>"><?= $kelas['kelas'] ?></option>
+                <?php } ?>
         </select><br>
         <label>Nomer Hp</label>
         <input type="text" name="nohp" maxlength="12">
@@ -34,7 +40,7 @@
         $no = $_POST['nohp'];
         $email = $_POST['email'];
         
-        $query = mysqli_query($host,"INSERT INTO siswa(nama_siswa,kelas,no_hp,email) VALUES ('$nama','$kelas','$no','$email')");
+        $query = mysqli_query($host,"INSERT INTO siswa(nama_siswa,id_kelas,no_hp,email) VALUES ('$nama','$kelas','$no','$email')");
         if ($query){
             header('location:lihat_siswa.php');
         }
